@@ -1,0 +1,8 @@
+*.in
+*.out
+copy*.c
+promissor1.c
+promissor2.c
+promissor3.c
+promissor4.c
+*.json
