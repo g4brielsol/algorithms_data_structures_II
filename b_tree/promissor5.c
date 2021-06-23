@@ -113,10 +113,12 @@ int setNodeValue(int item, struct aluno **pval, struct btreeNode *node, struct b
   // se não tiver pai e retorna 1
   if (!node) {
     copia->numero_usp = item;
+    // printf("test %d\n", copia->numero_usp);FUNCIONANDO
     // valor do i na funcao insertion() vai ser o valor do item
     *pval = copia;
     // valor do child é nulo
     *child = NULL;
+    printf("test POINTER POINTER %d\n", (*pval)->numero_usp); // FUNCIONANDO
     return 1;
   }
   // se o valor for menor que o 2 valor do nó pai
