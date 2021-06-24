@@ -1,4 +1,4 @@
-// TODO Debugar porque os outros valores dao 0
+// Agora está tudo funfando com o numero USP, só testar com as outras variáveis
 
 
 // insertioning a key on a B-tree in C
@@ -52,6 +52,7 @@ void insertValue(int item, int pos, struct btreeNode *node, struct btreeNode *ch
   node->link[j + 1] = child;
   // valor de nós é incrementado
   node->count++;
+  //printf("test %d\n", item);//node->item[j + 1].numero_usp); FUNCIONANDO MAS VALOR 0
 }
 
 // Split node
@@ -118,7 +119,7 @@ int setNodeValue(int item, struct aluno **pval, struct btreeNode *node, struct b
     *pval = copia;
     // valor do child é nulo
     *child = NULL;
-    printf("test POINTER POINTER %d\n", (*pval)->numero_usp); // FUNCIONANDO
+    //printf("test POINTER POINTER %d\n", (*pval)->numero_usp); // FUNCIONANDO
     return 1;
   }
   // se o valor for menor que o 2 valor do nó pai
@@ -149,13 +150,17 @@ int setNodeValue(int item, struct aluno **pval, struct btreeNode *node, struct b
     if (node->count < MAX)
     {
       // insere o nó
-      insertValue(copia->numero_usp, pos, node, *child);
+      //printf("test %d\n", item); FUNCIONANDO MAS 0
+      //insertValue(copia->numero_usp, pos, node, *child);
+      insertValue(item, pos, node, *child);
     } 
     // se a quantidade de nós for igual ao máximo
     else 
     {
+      //printf("test %d\n", item);
       // faz o split dos nós
-      splitNode(copia->numero_usp, pval, pos, node, *child, child);
+      //splitNode(copia->numero_usp, pval, pos, node, *child, child);
+      splitNode(item, pval, pos, node, *child, child);
       return 1;
     }
   }
